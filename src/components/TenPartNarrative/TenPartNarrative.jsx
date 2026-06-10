@@ -28,7 +28,7 @@ export default function Featured() {
 
   const handleInstagramRedirect = () => {
     window.open(
-      "https://www.instagram.com/frame_makers_studio/",
+      "https://www.instagram.com/devstudioz_official/",
       "_blank"
     );
   };
