@@ -1,0 +1,129 @@
+/* ===== WORKFLOW SECTION ===== */
+.workflow {
+  padding: 100px 5%;
+  background-color: var(--color-bg);
+}
+
+.workflow__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+/* Header */
+.workflow__header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.workflow__title {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.workflow__desc {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  max-width: 680px;
+}
+
+/* Accordion */
+.workflow__accordion {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--color-border);
+}
+
+.workflow__item {
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.workflow__trigger {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 24px 0;
+  text-align: left;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: var(--font-primary);
+  transition: color var(--transition-fast);
+}
+
+.workflow__trigger:hover {
+  color: var(--color-orange);
+}
+
+.workflow__trigger-dot {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.workflow__trigger-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  flex: 1;
+  letter-spacing: -0.01em;
+}
+
+.workflow__trigger-icon {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  transition: transform var(--transition-med);
+  line-height: 1;
+}
+
+.workflow__item--active .workflow__trigger-icon {
+  transform: rotate(0deg);
+  color: var(--color-text-dark);
+}
+
+/* Panel */
+.workflow__panel {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease;
+}
+
+.workflow__panel-inner {
+  padding: 0 0 24px 34px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .workflow {
+    padding: 70px 5%;
+  }
+
+  .workflow__inner {
+    gap: 40px;
+  }
+
+  .workflow__trigger-label {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .workflow {
+    padding: 50px 5%;
+  }
+
+  .workflow__panel-inner {
+    padding-left: 0;
+  }
+}

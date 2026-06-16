@@ -1,0 +1,103 @@
+/* ===== INDUSTRIES SECTION ===== */
+.industries {
+  padding: 100px 5%;
+  background-color: var(--color-bg);
+}
+
+.industries__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+/* Header */
+.industries__header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.industries__title {
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.industries__desc {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin-bottom: 24px;
+}
+
+.industries__links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Pills Grid */
+.industries__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.industries__pill {
+  padding: 14px 28px;
+  border: 2px solid var(--color-text-dark);
+  border-radius: var(--radius-full);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+  letter-spacing: -0.01em;
+}
+
+.industries__pill:hover {
+  background-color: var(--color-text-dark);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .industries__header {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .industries {
+    padding: 70px 5%;
+  }
+
+  .industries__pill {
+    padding: 12px 22px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .industries {
+    padding: 50px 5%;
+  }
+
+  .industries__links {
+    flex-direction: column;
+  }
+
+  .industries__links a {
+    text-align: center;
+  }
+
+  .industries__pill {
+    padding: 10px 18px;
+    font-size: 0.875rem;
+  }
+}

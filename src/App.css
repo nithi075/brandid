@@ -1,12 +1,4 @@
-/* App.css - General site wrapper */
+/* App-level styles */
 .app {
-  width: 100%;
-  overflow-x: hidden; /* Smooth scrolling-kaga horizontal scroll-ai hide pannalam */
-}
-
-/* Sections-kku oru common padding vachukitta editorial feel kidaikkum */
-section {
-  padding: 80px 40px; 
-  max-width: 1400px;
-  margin: 0 auto;
+  overflow-x: hidden;
 }

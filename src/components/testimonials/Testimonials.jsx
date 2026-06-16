@@ -1,126 +1,97 @@
-import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
-import "./Testimonials.css";
-
-import client1 from "../../assets/story3.jpg";
-import client2 from "../../assets/story4.jpg";
+import './Testimonials.css'
 
 const testimonials = [
   {
-    image: client1,
-    name: "Selvakumar & Sowmitha",
-    review:
-      "Their work isn't just photography; it's art. Every emotion, every detail, and every fleeting moment was captured beautifully. Looking through our album feels like reliving the day all over again."
+    quote:
+      'Professional team of creatives with high attention for detail and willingness to think along with specific wishes of the client.',
+    avatar:
+      'https://cdn.prod.website-files.com/661fd630c0a9ac4bbd2a7878/661fd630c0a9ac4bbd2a78fd_bs_revirew_J.png',
+    name: 'Arjun',
+    role: 'Event Programmer, Ratherlost',
   },
   {
-    image: client2,
-    name: "Karthik & Meha Dharsini",
-    review:
-      "An incredible storytelling experience from start to finish. The team made us feel comfortable, and the photographs are timeless. We couldn't have asked for a better experience."
-  }
-];
+    quote:
+      'Dream team! They helped us so much setting up our social media strategy. Really recommend them if you need professionals ;-)',
+    avatar:
+      'https://cdn.prod.website-files.com/661fd630c0a9ac4bbd2a7878/661fd630c0a9ac4bbd2a78fb_bs_revirew_K.png',
+    name: 'Simon',
+    role: 'Manager, Leadership Training',
+  },
+  {
+    quote:
+      'Amazing service, worked with Brick on some projects that needed a professional and great design. Executed perfectly! 10/10 would recommend!',
+    avatar:
+      'https://cdn.prod.website-files.com/661fd630c0a9ac4bbd2a7878/661fd630c0a9ac4bbd2a78fc_bs_revirew_L.png',
+    name: 'Anitha',
+    role: 'CEO, NoBrands',
+  },
+  {
+    quote:
+      'Top notch agency with a team that knows how to strike the balance between pushing their own creativity and fulfilling their clients needs.',
+    avatar:
+      'https://cdn.prod.website-files.com/661fd630c0a9ac4bbd2a7878/661fd630c0a9ac4bbd2a78ff_bs_revirew_K_1.png',
+    name: 'Kumar',
+    role: 'Co-founder, Hittegolf-media',
+  },
+  {
+    quote:
+      'Without BRICK Socials we would not be who we are today. The place to be when you need consistency!',
+    avatar:
+      'https://cdn.prod.website-files.com/661fd630c0a9ac4bbd2a7878/661fd630c0a9ac4bbd2a78fc_bs_revirew_L.png',
+    name: 'Santhosh',
+    role: 'Founder/CEO, Social Training Club',
+  },
+  {
+    quote:
+      'The agency has a mix range of talented graphic designers, videographers and social media managers. Very hands on and amazing to work with!',
+    avatar:
+      'https://cdn.prod.website-files.com/661fd630c0a9ac4bbd2a7878/661fd630c0a9ac4bbd2a78fe_bs_revirew_S.png',
+    name: 'Ravi',
+    role: 'Manager, Tacos&Tequila',
+  },
+]
 
-/* Duplicate cards for smoother carousel */
-const displayTestimonials = [
-  ...testimonials,
-  ...testimonials,
-  ...testimonials
-];
+function TestimonialCard({ testimonial }) {
+  return (
+    <div className="testimonial__card">
+      <p className="testimonial__quote">"{testimonial.quote}"</p>
+      <div className="testimonial__author">
+        <img
+          className="testimonial__avatar"
+          src={testimonial.avatar}
+          alt={testimonial.name}
+          loading="lazy"
+        />
+        <div className="testimonial__info">
+          <span className="testimonial__name">{testimonial.name}</span>
+          <span className="testimonial__role">{testimonial.role}</span>
+        </div>
+      </div>
+    </div>
+  )
+}
 
-const Testimonials = () => {
-  const sliderRef = useRef(null);
-
-  useEffect(() => {
-    const slider = sliderRef.current;
-
-    if (!slider) return;
-
-    const interval = setInterval(() => {
-      const card =
-        slider.querySelector(".testimonial-card");
-
-      if (!card) return;
-
-      const cardWidth = card.offsetWidth;
-      const gap = 35;
-
-      const nextPosition =
-        slider.scrollLeft + cardWidth + gap;
-
-      const maxScroll =
-        slider.scrollWidth - slider.clientWidth;
-
-      if (nextPosition >= maxScroll - 50) {
-        slider.scrollTo({
-          left: 0,
-          behavior: "smooth"
-        });
-      } else {
-        slider.scrollTo({
-          left: nextPosition,
-          behavior: "smooth"
-        });
-      }
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
+export default function Testimonials() {
+  /* Duplicate for seamless marquee */
+  const doubledTestimonials = [...testimonials, ...testimonials, ...testimonials]
 
   return (
-    <section className="testimonials-section">
-
-      <span className="testimonial-label">
-        TRUSTED BY OUR CLIENTS
-      </span>
-
-      <h2 className="section-title">
-        Words Of Love
-      </h2>
-
-      <div
-        className="testimonial-slider"
-        ref={sliderRef}
-      >
-
-        {displayTestimonials.map((item, index) => (
-          <motion.div
-            key={index}
-            className="testimonial-card"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 0.7,
-              delay: index * 0.05
-            }}
-          >
-
-            <div className="client-avatar">
-              <img
-                src={item.image}
-                alt={item.name}
-              />
-            </div>
-
-            <h3 className="client-name">
-              {item.name}
-            </h3>
-
-            <div className="quote-icon">
-              ❝
-            </div>
-
-            <p className="quote-text">
-              {item.review}
-            </p>
-
-          </motion.div>
-        ))}
-
+    <section className="testimonials">
+      <div className="testimonials__header">
+        <h2 className="testimonials__title">The word on the street is ...</h2>
+        <p className="testimonials__subtitle">
+          You can't just take our word for it. Our clients vow for us :)
+        </p>
       </div>
 
+      {/* Scrolling marquee row */}
+      <div className="testimonials__marquee-wrapper">
+        <div className="testimonials__marquee-track">
+          {doubledTestimonials.map((t, i) => (
+            <TestimonialCard key={i} testimonial={t} />
+          ))}
+        </div>
+      </div>
     </section>
-  );
-};
-
-export default Testimonials;
+  )
+}
