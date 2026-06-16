@@ -6,10 +6,10 @@ import Symphony from './components/Symphony/Symphony'
 import Services from './components/Services/Services'
 import Workflow from './components/Workflow/Workflow'
 import Industries from './components/Industries/Industries'
-import Testimonials from './components/Testimonials/Testimonials'
+import Testimonials from './components/testimonials/Testimonials'
 import BrickAgency from './components/BrickAgency/BrickAgency'
 import CTA from './components/CTA/CTA'
-import Footer from './components/Footer/Footer'
+import Footer from './components/footer/footer'
 
 function App() {
   return (
